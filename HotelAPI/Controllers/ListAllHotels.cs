@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using HotelAPI.BO;
+using HotelAPI.Service.Interface;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HotelAPI.Controllers
@@ -7,10 +9,15 @@ namespace HotelAPI.Controllers
     [ApiController]
     public class ListAllHotels : ControllerBase
     {
-        [HttpGet]
-        public string get()
+        private readonly IListAllHotel _iListAllHotel;
+        public ListAllHotels(IListAllHotel ilistAllHotel)
         {
-            return "Welcome to Hotel API.";
+            _iListAllHotel = ilistAllHotel;
+        }
+        [HttpGet]
+        public List<HotelMaster> get()
+        {
+            return _iListAllHotel.getAllHotels();
         }
     }
 }

@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\HotelAPI.BL\HotelAPI.BO.csproj" />
+    <ProjectReference Include="..\HotelAPI.DA\HotelAPI.DA.csproj" />
+  </ItemGroup>
+
 </Project>
