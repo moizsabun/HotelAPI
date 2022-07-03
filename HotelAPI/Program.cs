@@ -13,6 +13,7 @@ builder.Services.AddDbContextPool<AppDBContext>(options =>
    b => b.MigrationsAssembly("HotelAPI")));
 
 builder.Services.AddScoped<IListAllHotel, ListAllHotelsService>();
+builder.Services.AddScoped<ISearchHotel, SearchHotelViaIDService>();
 var app = builder.Build();
 
 app.MapGet("/", () => "Hello World!");

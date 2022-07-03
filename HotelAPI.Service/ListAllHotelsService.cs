@@ -20,7 +20,7 @@ namespace HotelAPI.Service
         {
             try
             {
-                return _appDBContext.HotelMasters.ToList();
+                return _appDBContext.HotelMasters.Where(s => s.HotelStatus == true).ToList();
             }
             catch (Exception ex) 
             {

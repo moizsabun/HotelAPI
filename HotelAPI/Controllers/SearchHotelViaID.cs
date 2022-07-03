@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using HotelAPI.BO;
+using HotelAPI.Service.Interface;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HotelAPI.Controllers
@@ -7,10 +9,15 @@ namespace HotelAPI.Controllers
     [ApiController]
     public class SearchHotelViaID : ControllerBase
     {
-        [HttpGet]
-        public string get()
+        private readonly ISearchHotel _IsearchHotel;
+        public SearchHotelViaID(ISearchHotel iSearchHotel)
         {
-            return "here we will return specific hotel with details";
+            _IsearchHotel = iSearchHotel;
+        }
+        [HttpGet]
+        public HotelMaster get(int Id)
+        {
+            return _IsearchHotel.getAllHotelviaID(Id);
         }
     }
 }
