@@ -1,5 +1,6 @@
 ﻿using HotelAPI.BO;
 using HotelAPI.DA;
+using HotelAPI.Model;
 using HotelAPI.Service.Interface;
 using System;
 using System.Collections.Generic;

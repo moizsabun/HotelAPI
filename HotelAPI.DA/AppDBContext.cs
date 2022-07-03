@@ -1,4 +1,5 @@
 ﻿using HotelAPI.BO;
+using HotelAPI.Model;
 using Microsoft.EntityFrameworkCore;
 namespace HotelAPI.DA
 {
@@ -9,9 +10,9 @@ namespace HotelAPI.DA
         {
         }
 
-        public virtual DbSet<FacilitiesMaster> FacilitiesMasters { get; set; } = null!;
+
         public virtual DbSet<HotelBooking> HotelBookings { get; set; } = null!;
-        public virtual DbSet<HotelComment> HotelComments { get; set; } = null!;
+
         public virtual DbSet<HotelMaster> HotelMasters { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -23,20 +24,14 @@ namespace HotelAPI.DA
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<FacilitiesMaster>(entity =>
-            {
-                entity.Property(e => e.FacilitiesId).ValueGeneratedOnAdd();
-            });
+            
 
             modelBuilder.Entity<HotelBooking>(entity =>
             {
                 entity.Property(e => e.BookingId).ValueGeneratedOnAdd();
             });
 
-            modelBuilder.Entity<HotelComment>(entity =>
-            {
-                entity.Property(e => e.CommentsId).ValueGeneratedOnAdd();
-            });
+            
 
             modelBuilder.Entity<HotelMaster>(entity =>
             {
@@ -47,6 +42,7 @@ namespace HotelAPI.DA
                 entity.Property(e => e.HotelRooms).HasDefaultValueSql("((1))");
 
                 entity.Property(e => e.HotelStatus).HasDefaultValueSql("((1))");
+              
             });
 
             OnModelCreatingPartial(modelBuilder);

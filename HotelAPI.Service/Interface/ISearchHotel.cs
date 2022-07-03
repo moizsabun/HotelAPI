@@ -1,4 +1,5 @@
 ﻿using HotelAPI.BO;
+using HotelAPI.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;

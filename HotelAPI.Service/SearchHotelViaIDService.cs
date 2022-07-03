@@ -1,5 +1,6 @@
 ﻿using HotelAPI.BO;
 using HotelAPI.DA;
+using HotelAPI.Model;
 using HotelAPI.Service.Interface;
 using System;
 using System.Collections.Generic;
@@ -20,7 +21,7 @@ namespace HotelAPI.Service
         {
             try
             {
-                return _appDBContext.HotelMasters.Where(s => s.HotelId == Id && s.HotelStatus == true).FirstOrDefault();
+                return _appDBContext.HotelMasters.Where(s => s.HotelId == Id && s.HotelStatus == true).First();
             }
             catch (Exception ex)
             {

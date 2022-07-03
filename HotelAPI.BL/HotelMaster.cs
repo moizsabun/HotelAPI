@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace HotelAPI.BO
+namespace HotelAPI.Model
 {
     [Keyless]
     [Table("Hotel_Master")]
@@ -21,6 +21,13 @@ namespace HotelAPI.BO
         [Column("Hotel_Description")]
         [StringLength(300)]
         public string? HotelDescription { get; set; }
+        [Column("Hotel_Ratings")]
+        public int? HotelRatings { get; set; }
+        [Column("Hotel_Review")]
+        public int? HotelReview { get; set; }
+        [Column("Hotel_Facilities")]
+        [StringLength(200)]
+        public string? HotelFacilities { get; set; }
         [Column("Hotel_Charges")]
         public int? HotelCharges { get; set; }
         [Column("Hotel_AddedBy")]
@@ -31,5 +38,11 @@ namespace HotelAPI.BO
         public bool? HotelStatus { get; set; }
         [Column("Hotel_Rooms")]
         public int? HotelRooms { get; set; }
+        [Column("Hotel_Image_1")]
+        public string? HotelImage1 { get; set; }
+        [Column("Hotel_Image_2")]
+        public string? HotelImage2 { get; set; }
+        [Column("Hotel_Image_3")]
+        public string? HotelImage3 { get; set; }
     }
 }

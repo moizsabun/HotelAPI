@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace HotelAPI.BO
+namespace HotelAPI.Model
 {
     [Keyless]
     [Table("Hotel_Booking")]

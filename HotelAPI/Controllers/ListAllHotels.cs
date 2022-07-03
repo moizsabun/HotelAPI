@@ -1,4 +1,5 @@
 ﻿using HotelAPI.BO;
+using HotelAPI.Model;
 using HotelAPI.Service.Interface;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
