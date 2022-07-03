@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using HotelAPI.Model;
+using HotelAPI.Service.Interface;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HotelAPI.Controllers
@@ -7,11 +9,18 @@ namespace HotelAPI.Controllers
     [ApiController]
     public class AddBooking : ControllerBase
     {
-        [HttpGet]
+        private readonly IAddBooking _iAddBooking;
 
-        public string get()
+        public AddBooking(IAddBooking iAddBooking)
         {
-            return "This will be a post method for add booking for a specific hotel, initially made as get";
+            _iAddBooking = iAddBooking;
+        }
+
+        [HttpPost]
+
+        public int Post([FromBody] HotelBooking data)
+        {
+            return _iAddBooking.addBooking(data);
         }
     }
 }

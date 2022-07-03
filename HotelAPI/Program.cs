@@ -9,11 +9,14 @@ builder.Services.AddControllers(options => options.EnableEndpointRouting = false
 
 
 builder.Services.AddDbContextPool<AppDBContext>(options =>
-   options.UseSqlServer(builder.Configuration.GetConnectionString("brandActivationDB"),
+   options.UseSqlServer(builder.Configuration.GetConnectionString("HotelBookingAPI"),
    b => b.MigrationsAssembly("HotelAPI")));
 
 builder.Services.AddScoped<IListAllHotel, ListAllHotelsService>();
 builder.Services.AddScoped<ISearchHotel, SearchHotelViaIDService>();
+
+builder.Services.AddScoped<IAddBooking, AddBookingService>();
+
 var app = builder.Build();
 
 app.MapGet("/", () => "Hello World!");

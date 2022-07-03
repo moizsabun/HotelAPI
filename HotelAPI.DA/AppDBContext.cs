@@ -35,6 +35,8 @@ namespace HotelAPI.DA
 
             modelBuilder.Entity<HotelMaster>(entity =>
             {
+                entity.Property(e => e.HotelAddedBy).HasDefaultValueSql("((1))");
+
                 entity.Property(e => e.HotelAddedDatetime).HasDefaultValueSql("(getdate())");
 
                 entity.Property(e => e.HotelId).ValueGeneratedOnAdd();
@@ -42,7 +44,7 @@ namespace HotelAPI.DA
                 entity.Property(e => e.HotelRooms).HasDefaultValueSql("((1))");
 
                 entity.Property(e => e.HotelStatus).HasDefaultValueSql("((1))");
-              
+
             });
 
             OnModelCreatingPartial(modelBuilder);
